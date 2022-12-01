@@ -1,17 +1,37 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+
+        var totalKcal = 0
+        var highestKcal = 0
+        for (kcal in input) {
+            if (kcal == "") {
+                if (totalKcal > highestKcal) {
+                    highestKcal = totalKcal
+                }
+                totalKcal = 0
+            } else {
+                val intKcal = kcal.toInt()
+                totalKcal += intKcal
+            }
+        }
+        return highestKcal
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun part2(inputStringOfKcal: String): Int {
+        return inputStringOfKcal
+                .split("\n\n")
+                .map{it
+                        .split("\n")
+                        .map{stringKcal -> stringKcal.toInt()}
+                        .reduce{totalKcal, kcal -> totalKcal + kcal}
+                }
+                .sortedByDescending{it}
+                .slice(IntRange(0,2))
+                .sum()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
+    val input = lineInput("Day01")
     println(part1(input))
-    println(part2(input))
+    val inputText = textInput("Day01")
+    println(part2(inputText))
 }
