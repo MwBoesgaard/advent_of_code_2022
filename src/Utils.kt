@@ -15,6 +15,15 @@ fun printSolutionFromInputLines(name: String, solutionFunction: (List<String>) -
     println("${solutionFunction.toString().substring(9..13)} execution complete. Answer: $result. Runtime: $runtime ms")
 }
 
+fun printStringSolutionFromInputLines(name: String, solutionFunction: (List<String>) -> String) {
+    var result: String
+    val runtime = measureTimeMillis {
+        val input = readInput(name)
+        result = solutionFunction(input)
+    }
+    println("${solutionFunction.toString().substring(9..13)} execution complete. Answer: $result. Runtime: $runtime ms")
+}
+
 fun printSolutionFromInputText(name: String, solutionFunction: (String) -> Int) {
     var result: Int
     val runtime = measureTimeMillis {
