@@ -100,8 +100,8 @@ fun main() {
         return cargo.joinToString("") { it.last() }
     }
 
-    printStringSolutionFromInputLines("Day05", ::part1)
-    printStringSolutionFromInputLines("Day05", ::part2)
+    printSolutionFromInputLines("Day05", ::part1)
+    printSolutionFromInputLines("Day05", ::part2)
 }
 
 

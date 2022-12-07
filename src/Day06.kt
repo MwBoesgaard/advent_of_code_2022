@@ -26,7 +26,7 @@ fun main() {
             .indexOf(14) + 14
     }
 
-    printSolutionFromInputText("Day06", ::part1)
-    printSolutionFromInputText("Day06", ::part2)
+    printSolutionFromInputRaw("Day06", ::part1)
+    printSolutionFromInputRaw("Day06", ::part2)
 }
 

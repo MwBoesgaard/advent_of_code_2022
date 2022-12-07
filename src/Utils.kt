@@ -6,8 +6,8 @@ fun readInput(name: String): List<String> = File("src", "$name.txt").readLines(C
 
 fun textInput(name: String): String = File("src", "$name.txt").readText(Charset.forName("UTF-8"))
 
-fun printSolutionFromInputLines(name: String, solutionFunction: (List<String>) -> Int) {
-    var result: Int
+fun <T> printSolutionFromInputLines(name: String, solutionFunction: (List<String>) -> T) {
+    var result: T
     val runtime = measureTimeMillis {
         val input = readInput(name)
         result = solutionFunction(input)
@@ -15,17 +15,8 @@ fun printSolutionFromInputLines(name: String, solutionFunction: (List<String>) -
     println("${solutionFunction.toString().substring(9..13)} execution complete. Answer: $result. Runtime: $runtime ms")
 }
 
-fun printStringSolutionFromInputLines(name: String, solutionFunction: (List<String>) -> String) {
-    var result: String
-    val runtime = measureTimeMillis {
-        val input = readInput(name)
-        result = solutionFunction(input)
-    }
-    println("${solutionFunction.toString().substring(9..13)} execution complete. Answer: $result. Runtime: $runtime ms")
-}
-
-fun printSolutionFromInputText(name: String, solutionFunction: (String) -> Int) {
-    var result: Int
+fun <T> printSolutionFromInputRaw(name: String, solutionFunction: (String) -> T) {
+    var result: T
     val runtime = measureTimeMillis {
         val input = textInput(name)
         result = solutionFunction(input)

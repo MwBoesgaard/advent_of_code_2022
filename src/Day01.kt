@@ -31,6 +31,6 @@ fun main() {
             .sum()
     }
     printSolutionFromInputLines("Day01", ::part1)
-    printSolutionFromInputText("Day01", ::part2)
+    printSolutionFromInputRaw("Day01", ::part2)
 }
 
